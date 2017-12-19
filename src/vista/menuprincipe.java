@@ -5,6 +5,10 @@
  */
 package vista;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author USUARIO
@@ -37,6 +41,11 @@ public class menuprincipe extends javax.swing.JFrame {
         prodmenu.setText("Producto");
 
         agregar.setText("agregar");
+        agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarActionPerformed(evt);
+            }
+        });
         prodmenu.add(agregar);
 
         jMenuBar1.add(prodmenu);
@@ -59,6 +68,18 @@ public class menuprincipe extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
+        try {
+            agregarproducto agregar = new agregarproducto();
+            agregar.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(menuprincipe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_agregarActionPerformed
 
     /**
      * @param args the command line arguments
